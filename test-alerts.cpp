@@ -40,11 +40,10 @@ TEST_CASE("Temperature breach acoording to cooling type")
 TEST_CASE("Alerter via email and controller")
 {
   BatteryCharacter batteryInfo;
-  batteryInfo.brand = "Duracell";
+
   batteryInfo.coolingType = MED_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_EMAIL, batteryInfo, 43) == true);
   
-  batteryInfo.brand = "CellWin";
   batteryInfo.coolingType = HI_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryInfo, 43) == true);
 }
